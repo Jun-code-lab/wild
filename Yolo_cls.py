@@ -78,9 +78,10 @@ if __name__ == '__main__':
         patience=EARLY_STOPPING_PATIENCE,
         lr0=0.01,
         **AUGMENTATION_OPTIONS,
-        weight_decay=0.001,
+        weight_decay=0.001, # 가중치 조절하기 
         device=0,
-        workers=min(16, os.cpu_count()),
+        workers=min(16, os.cpu_count()), # cpu 병목 현상 처리(쓰레드에 일 전부 줘서 빨리 해결하기)
+        cashe = True # cpu 병목 현상 처리
         
     )
 
